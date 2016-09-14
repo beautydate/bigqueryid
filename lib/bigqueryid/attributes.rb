@@ -29,6 +29,14 @@ module Bigqueryid
           send("#{name}=", attributes[name][:default]) if options.key? :default
         end
       end
+
+      def to_hash
+        hash = {}
+        properties_names.each do |property|
+          hash[property] = send(property)
+        end
+        hash.sort.to_h
+      end
     end
 
     class_methods do
