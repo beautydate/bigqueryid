@@ -24,9 +24,9 @@ module Bigqueryid
 
       def self.gcloud
         if ENV.include?('GCLOUD_KEYFILE_JSON') && ENV.include?('GCLOUD_PROJECT')
-          Gcloud.new ENV['GCLOUD_PROJECT'], ENV['GCLOUD_KEYFILE_JSON']
+          Google::Cloud.new ENV['GCLOUD_PROJECT'], ENV['GCLOUD_KEYFILE_JSON']
         else
-          Gcloud.new
+          Google::Cloud.new
         end
       end
 
