@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name        = 'bigqueryid'
-  gem.version     = '0.2.0'
+  gem.version     = '0.3.0'
   gem.date        = '2016-09-12'
   gem.summary     = "Google BigQuery ORM"
   gem.description = "Simple ORM to Google BigQuery"
