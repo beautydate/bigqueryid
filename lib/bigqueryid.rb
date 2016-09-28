@@ -1,5 +1,5 @@
-module Datastoreid
-  require 'google/cloud'
+module Bigqueryid
+  require 'google/cloud/bigquery'
   require 'active_support/concern'
   require 'active_model'
 
@@ -9,4 +9,5 @@ module Datastoreid
   require 'bigqueryid/criteria'
   require 'bigqueryid/base/initializable'
   require 'bigqueryid/base'
+  require 'bigqueryid/timestamps'
 end
