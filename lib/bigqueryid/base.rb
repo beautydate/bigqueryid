@@ -35,7 +35,7 @@ module Bigqueryid
       end
 
       def self.gcloud_table
-        bigquery.dataset(self.dataset_name).table(table_name)
+        bigquery.dataset(dataset_name).table(table_name)
       end
 
       def self.table_exist?

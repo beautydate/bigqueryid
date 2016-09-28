@@ -1,5 +1,5 @@
-module Datastoreid
-  require 'google/cloud'
+module Bigqueryid
+  require 'google/cloud/bigquery'
   require 'active_support/concern'
   require 'active_model'
 
