@@ -9,4 +9,5 @@ module Bigqueryid
   require 'bigqueryid/criteria'
   require 'bigqueryid/base/initializable'
   require 'bigqueryid/base'
+  require 'bigqueryid/timestamps'
 end
