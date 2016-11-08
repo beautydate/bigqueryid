@@ -4,7 +4,7 @@ module Bigqueryid
     extend ActiveSupport::Concern
 
     included do
-      field :created_at, default: DateTime.now
+      field :created_at, default: -> { Time.now.strftime('%Y-%m-%d %H:%M:%S') }
     end
   end
 end
