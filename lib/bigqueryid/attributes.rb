@@ -26,7 +26,12 @@ module Bigqueryid
 
       def set_default_values
         attributes.each_pair do |name, options|
-          send("#{name}=", attributes[name][:default]) if options.key? :default
+          next unless options.key? :default
+
+          default = options[:default]
+          # Default might be a lambda
+          value = default.respond_to?(:call) ? default.call : default
+          send("#{name}=", value)
         end
       end
 
