@@ -1,7 +1,9 @@
+require File.expand_path('../lib/bigqueryid/version', __FILE__)
+
 Gem::Specification.new do |gem|
   gem.name        = 'bigqueryid'
-  gem.version     = '0.3.1'
-  gem.date        = '2016-09-12'
+  gem.version     = Bigqueryid::VERSION
+  gem.date        = '2016-11-24'
   gem.summary     = "Google BigQuery ORM"
   gem.description = "Simple ORM to Google BigQuery"
   gem.authors     = ["Fabio Tomio"]

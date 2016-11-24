@@ -10,4 +10,5 @@ module Bigqueryid
   require 'bigqueryid/base/initializable'
   require 'bigqueryid/base'
   require 'bigqueryid/timestamps'
+  require 'bigqueryid/version'
 end
