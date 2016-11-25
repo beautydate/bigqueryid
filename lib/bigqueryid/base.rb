@@ -22,12 +22,8 @@ module Bigqueryid
         self.table_name = name
       end
 
-      def self.gcloud
-        Google::Cloud.new
-      end
-
       def self.bigquery
-        @bigquery_connection ||= gcloud.bigquery
+        @bigquery_connection ||= Google::Cloud::Bigquery.new
       end
 
       def self.gcloud_table
