@@ -6,12 +6,11 @@ require 'bigqueryid/version'
 Gem::Specification.new do |spec|
   spec.name        = 'bigqueryid'
   spec.version     = Bigqueryid::VERSION
-  spec.date        = '2016-11-24'
   spec.summary     = 'Google BigQuery ORM'
-  spec.description = 'Simple ORM to Google BigQuery'
+  spec.description = 'Simple ORM for Google BigQuery'
   spec.authors     = ['Fabio Tomio']
   spec.email       = 'fabiotomio@gmail.com'
-  spec.homepage    = 'http://github.com/fabiotomio/bigqueryid'
+  spec.homepage    = 'http://github.com/b2beauty/bigqueryid'
   spec.license     = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|

@@ -1,5 +1,5 @@
 module Bigqueryid
   # version string
   # @api public
-  VERSION = '0.4.0'
+  VERSION = '0.5.0'
 end
