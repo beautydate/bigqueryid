@@ -42,6 +42,10 @@ module Bigqueryid
         end
         hash.sort.to_h
       end
+
+      def coercer
+        @coercer ||= Coercible::Coercer.new
+      end
     end
 
     class_methods do
@@ -61,8 +65,16 @@ module Bigqueryid
         define_method(name) do # Define get method
           instance_variable_get("@#{name}")
         end
+
         define_method("#{name}=") do |value| # Define set method
-          instance_variable_set("@#{name}", value)
+          coerced_value =
+            if attributes[name][:type]
+              coercer[value.class].send("to_#{attributes[name][:type].to_s.downcase}", value)
+            else
+              value
+            end
+
+          instance_variable_set("@#{name}", coerced_value)
         end
       end
     end

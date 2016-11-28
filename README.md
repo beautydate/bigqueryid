@@ -31,6 +31,10 @@ class Product
   dataset 'core'
   table 'products'
 
+  field :name,  type: String
+  field :price, type: Float
+  field :barcode
+
   def self.create_table
     bigquery.dataset(self.dataset_name).create_table self.table_name do |schema|
       schema.string 'barcode'
