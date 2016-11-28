@@ -14,13 +14,13 @@ module Bigqueryid
         if attributes.is_a? ::Hash
           attributes.each_pair { |key, value| send("#{key}=", value) }
         else
-          raise Bigqueryid::Errors::BigqueryError.new 'Attributes params need is Hash'
+          raise Bigqueryid::Errors::BigqueryError.new 'Attributes params must be a Hash'
         end
       rescue
         raise Bigqueryid::Errors::BigqueryError.new 'Attribute invalid'
       end
 
-      def properties_names
+      def attributes_names
         attributes.keys
       end
 
@@ -37,7 +37,7 @@ module Bigqueryid
 
       def to_hash
         hash = {}
-        properties_names.each do |property|
+        attributes_names.each do |property|
           hash[property] = send(property)
         end
         hash.sort.to_h
