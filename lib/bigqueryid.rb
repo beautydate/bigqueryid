@@ -2,6 +2,7 @@ module Bigqueryid
   require 'google/cloud/bigquery'
   require 'active_support/concern'
   require 'active_model'
+  require 'coercible'
 
   require 'bigqueryid/errors/bigquery_error'
   require 'bigqueryid/attributes'
