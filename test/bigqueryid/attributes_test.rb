@@ -3,13 +3,16 @@ require 'test_helper'
 class MyModel
   include Bigqueryid::Base
 
-  field :integer, type: Integer
-  field :time,    type: Time
-  field :hash,    type: Hash
-  field :chash,   type: Hash[String => Integer]
-  field :array,   type: Array
-  field :carray,  type: Array[Hash[String => String]]
-  field :string,  type: String
+  field :integer,         type: Integer
+  field :time,            type: Time
+  field :str_float_time,  type: Time
+  field :float_time,      type: Time
+  field :int_time,        type: Time
+  field :hash,            type: Hash
+  field :chash,           type: Hash[String => Integer]
+  field :array,           type: Array
+  field :carray,          type: Array[Hash[String => String]]
+  field :string,          type: String
   field :without
 end
 
@@ -18,6 +21,9 @@ describe 'Bigqueryid::Attributes' do
     @subject = MyModel.new(
       integer: '1234',
       time: '2016-01-01',
+      str_float_time: '1.481832708E9',
+      float_time: 1481832708.0,
+      int_time: 1481832708,
       hash: { 'key' => '1' },
       chash: { 'key' => '1' },
       array: %w(a b c),
@@ -34,6 +40,18 @@ describe 'Bigqueryid::Attributes' do
 
     it 'type as time' do
       @subject.time.must_equal Time.parse('2016-01-01')
+    end
+
+    it 'type as string float time' do
+      @subject.str_float_time.must_equal Time.at('1.481832708E9'.to_f)
+    end
+
+    it 'type as float time' do
+      @subject.str_float_time.must_equal Time.at(1481832708.0)
+    end
+
+    it 'type as int time' do
+      @subject.int_time.must_equal Time.at(1481832708)
     end
 
     it 'type as hash' do
