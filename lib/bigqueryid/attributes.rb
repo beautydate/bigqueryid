@@ -90,8 +90,9 @@ module Bigqueryid
 
       def coerce_time(value)
         case value
-        when Integer then Time.at(value)
-        when String then Time.parse(value)
+        when Integer, Float      then Time.at(value)
+        when /\d{4}-\d{2}-\d{2}/ then Time.parse(value)
+        when /\A\d+(\.\d+)?/     then Time.at(value.to_f)
         else value
         end
       end

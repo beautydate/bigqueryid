@@ -10,7 +10,7 @@ gem install bigqueryid-<version>.gem
 ```
 or
 ```ruby
-gem 'bigqueryid', :git => 'git://github.com/fabiotomio/bigqueryid.git'
+gem 'bigqueryid'
 ```
 
 Configure
