@@ -10,7 +10,7 @@ module Bigqueryid
       self.attributes = {}
       self.coercer = Coercer.new(attributes)
 
-      field :id
+      field :id, type: String
 
       def attributes=(attributes)
         if attributes.is_a? ::Hash
