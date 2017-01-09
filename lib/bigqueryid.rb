@@ -8,6 +8,7 @@ module Bigqueryid
   require 'bigqueryid/attributes'
   require 'bigqueryid/criteria/queryable'
   require 'bigqueryid/criteria'
+  require 'bigqueryid/coercer'
   require 'bigqueryid/base/initializable'
   require 'bigqueryid/base'
   require 'bigqueryid/timestamps'
