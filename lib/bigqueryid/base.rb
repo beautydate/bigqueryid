@@ -13,13 +13,15 @@ module Bigqueryid
     included do
       class_attribute :dataset_name
       class_attribute :table_name
+      class_attribute :table_partitioned
 
       def self.dataset(name)
         self.dataset_name = name
       end
 
-      def self.table(name)
+      def self.table(name, partitioned: false)
         self.table_name = name
+        self.table_partitioned = partitioned
       end
 
       def self.bigquery
@@ -27,7 +29,10 @@ module Bigqueryid
       end
 
       def self.gcloud_table
-        bigquery.dataset(dataset_name).table(table_name)
+        table = table_name
+        table += "$#{Time.now.utc.strftime("%Y%m%d")}" if table_partitioned
+
+        bigquery.dataset(dataset_name).table(table)
       end
 
       def self.table_exist?
