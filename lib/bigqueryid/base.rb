@@ -30,7 +30,7 @@ module Bigqueryid
 
       def self.gcloud_table
         table = table_name
-        table += "$#{Time.now.strftime("%Y%m%d")}" if table_partitioned
+        table += "$#{Time.now.utc.strftime("%Y%m%d")}" if table_partitioned
 
         bigquery.dataset(dataset_name).table(table)
       end
